@@ -25,3 +25,6 @@ go.work*
 
 # Visual Studio Code files
 .vscode
+
+# Linter output
+golangci-lint-report.json

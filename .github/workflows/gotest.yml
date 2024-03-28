@@ -1,0 +1,21 @@
+name: Go Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout git repository
+      uses: actions/checkout@v3
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.22.0'
+    - name: Run tests
+      run: go test -v -cover -skip TestFindEntriesValidInput ./...

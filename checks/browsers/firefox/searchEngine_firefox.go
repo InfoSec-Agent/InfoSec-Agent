@@ -42,7 +42,7 @@ func SearchEngineFirefox() checks.Check {
 	fileSize := fileInfo.Size()
 
 	// Holds the information from the copied file
-	file, err := os.Open(tempSearch)
+	file, err := os.Open(filepath.Clean(tempSearch))
 	if err != nil {
 		return checks.NewCheckErrorf("SearchEngineFirefox", "Unable to open the file", err)
 	}
