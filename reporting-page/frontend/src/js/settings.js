@@ -1,41 +1,42 @@
 import { openPersonalizePage } from "./personalize";
+import { ChangeLanguage } from "../../wailsjs/go/main/Tray";
+import { GetLocalization } from './localize.js';
+
+function updateLanguage() {
+  ChangeLanguage()
+    .then((result) => {
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+}
 
 /** Load the content of the Settings page */
 function openSettingsPage() {
   document.getElementById("page-contents").innerHTML = `
-  <div class="setting dark-mode">
-    <span class="setting-description">Dark mode</span>
-    <label class="switch">
-      <input type="checkbox" id="dark-mode-switch">
-      <span class="slider round"></span>
-    </label>
-  </div>
+  <div class="setting personalize">
+    <span class="setting-description personalize-title">Personalization</span>
+    <button class="setting-button personalize-button" type="button">Personalize</button>
+    <!--<div id="personalize-button-box">
+      <div class="personalize-button">Personalize</div>
+    </div>-->
+  </div> 
   <hr class="solid">
-  <div class="setting">
-    <span class="setting-description">Other setting</span>
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <hr class="solid">
-  <div class="setting">
-    <span class="setting-description">Other setting</span>
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <hr class="solid">
-  <div class="setting">
-    <span class="setting-description">Personalize page</span>
-    <div id="personalize-button-box">
-      <div id="personalize-button">Click me</div>
-    </div>
+  <div class="setting language">
+    <span class="setting-description language-title">Language</span>
+    <button class="setting-button language-button" type="button">Change Language</button>
   </div> 
   `;
 
-  document.getElementById("personalize-button").addEventListener("click", () => openPersonalizePage());
+  // Localize the static content of the settings page
+  let staticSettingsContent = ["personalize-title", "personalize-button", "language-title", "language-button"]
+  let localizationIds = ["Settings.PersonalizeTitle", "Settings.PersonalizeButton", "Settings.ChangeLanguageTitle", "Settings.ChangeLanguageButton"]
+  for (let i = 0; i < staticSettingsContent.length; i++) {
+      GetLocalization(localizationIds[i], staticSettingsContent[i])
+  }
+
+  document.getElementsByClassName("language-button")[0].addEventListener("click", () => updateLanguage());
+  document.getElementsByClassName("personalize-button")[0].addEventListener("click", () => openPersonalizePage());
 }
 
 document.getElementById("settings-button").addEventListener("click", () => openSettingsPage());

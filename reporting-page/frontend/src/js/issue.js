@@ -1,5 +1,6 @@
 import data from "../database.json" assert { type: "json" };
 import { openIssuesPage } from "./issues.js";
+import { GetLocalization } from './localize.js';
 
 let stepCounter = 0;
 
@@ -8,6 +9,7 @@ let stepCounter = 0;
  * @param {[string]} solution List of textual solution steps
  * @param {[image]} screenshots List of images of solution steps
  * @param {int} stepCounter Counter specifying the current step
+
  */ 
 export function updateSolutionStep(solution, screenshots, stepCounter) {
   const solutionStep = document.getElementById("solution-text");
@@ -50,9 +52,9 @@ export function openIssuePage(issueId) {
   pageContents.innerHTML = `
     <h1 class="issue-name">${currentIssue.Name}</h1>
     <div class="issue-information">
-      <h2>Information</h2>
+      <h2 id="information">Information</h2>
       <p>${currentIssue.Information}</p>
-      <h2>Solution</h2>
+      <h2 id="solution">Solution</h2>
       <div class="issue-solution">
         <p id="solution-text">${currentIssue.Solution[stepCounter]}</p>
         <img style='display:block; width:500px;height:auto' id="step-screenshot"></img>
@@ -67,9 +69,15 @@ export function openIssuePage(issueId) {
     <div id="back-button">Back to issues overview</div>
   `;  
 
-  try {
-    document.getElementById("step-screenshot").src = currentIssue.Screenshots[stepCounter];
-  } catch (error) { } 
+    let texts = ["information", "solution", "previous-button", "next-button", "back-button"]
+    let localizationIds = ["Issues.Information", "Issues.Solution", "Issues.Previous", "Issues.Next", "Issues.Back"]
+    for (let i = 0; i < texts.length; i++) {
+        GetLocalization(localizationIds[i], texts[i])
+    }
+
+    try {
+        document.getElementById("step-screenshot").src = currentIssue.Screenshots[stepCounter];
+    } catch (error) { }
 
   // Add functions to page for navigation
   document.getElementById("next-button").addEventListener("click", () => nextSolutionStep(currentIssue.Solution, currentIssue.Screenshots));

@@ -1,12 +1,73 @@
 {
-  "ReportingPageTitle": "Rapportagepagina",
-  "ReportingPageTooltip": "Open de rapportagepagina",
-  "ScanIntervalTitle": "Verander scan interval",
-  "ScanIntervalTooltip": "Verander de scan interval van de applicatie",
-  "ScanNowTitle": "Scan nu",
-  "ScanNowTooltip": "Scan je device nu",
-  "ChangeLanguageTitle": "Verander taal",
-  "ChangeLanguageTooltip": "Verander de taal van de applicatie",
-  "QuitTitle": "Beëindig applicatie",
-  "QuitTooltip": "Beëindig de applicatie"
+  "Tray": 
+  {
+    "ReportingPageTitle": "Rapportagepagina",
+    "ReportingPageTooltip": "Open de rapportagepagina",
+    "ScanIntervalTitle": "Interval voor scannen wijzigen",
+    "ScanIntervalTooltip": "Wijzig het interval voor scannen",
+    "ScanNowTitle": "Nu scannen",
+    "ScanNowTooltip": "Scan nu uw apparaat",
+    "ChangeLanguageTitle": "Taal wijzigen",
+    "ChangeLanguageTooltip": "Wijzig de taal van de applicatie",
+    "QuitTitle": "Afsluiten",
+    "QuitTooltip": "Sluit voorbeeldbladtoepassing af"
+  },
+  "Navigation": 
+  {
+    "Settings": "Instellingen",
+    "Home": "Startpagina",
+    "SecurityDashboard": "Beveiligingsdashboard",
+    "PrivacyDashboard": "Privacydashboard",
+    "Issues": "Problemen",
+    "Integration": "Integratie",
+    "About": "Over"
+  },
+  "Settings":
+  {
+    "PersonalizeTitle": "Personalisatie",
+    "PersonalizeButton": "Personaliseer",
+    "ChangeLanguageTitle": "Taal",
+    "ChangeLanguageButton": "Taal wijzigen"
+  },
+  "Dashboard": 
+  {
+    "Issues": "Problemen",
+    "SuggestedIssue": "Voorgesteld Probleem",
+    "QuickFix": "Snelle Oplossing",
+    "ScanNow": "Nu Scannen",
+    "Medals": "Medailles",
+    "SecurityStatus": "Veiligheidsstatus",
+    "Critical": "Kritiek",
+    "MediumConcern": "Gemiddelde Bezorgdheid",
+    "LowConcern": "Lage Bezorgdheid",
+    "NoConcern": "Veilig",
+    "SecurityRisksOverview": "Overzicht van Beveiligings-/Privacyrisico's",
+    "HighRisk": "Hoogrisico-problemen",
+    "MediumRisk": "Gemiddeldrisico-problemen",
+    "LowRisk": "Laagrisico-problemen",
+    "Safe": "Problemen zonder risico",
+    "RiskAreas": "Gebieden van Veiligheids-/Privacyrisico's",
+    "Applications": "Applicaties",
+    "Browser": "Browser",
+    "Devices": "Apparaten",
+    "OperatingSystem": "Besturingssysteem",
+    "Passwords": "Wachtwoorden",
+    "Other": "Andere",
+    "ChooseIssueDescription": "U heeft enkele problemen die u kunt oplossen. Om een probleem op te lossen, navigeer naar de probleempagina of kies een voorgesteld probleem hieronder.",
+    "BarGraphDescription": "Deze grafiek toont de verdeling van problemen van verschillende risiconiveaus die in de afgelopen 5 scans zijn gevonden.",
+    "SelectRisks": "Risico's selecteren",
+    "ChangeInterval": "Interval wijzigen"
+  },
+  "Issues":
+  {
+    "Name": "Naam",
+    "Type": "Type",
+    "Risk": "Risiconiveau",
+    "Information": "Informatie",
+    "Solution": "Oplossing",
+    "Previous": "&laquo; Vorige stap",
+    "Next": "Volgende stap &raquo;",
+    "Back": "Terug naar het overzicht van problemen"
+  }
+  
 }

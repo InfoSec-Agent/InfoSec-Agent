@@ -1,12 +1,72 @@
 {
-  "ReportingPageTitle": "Reporting page",
-  "ReportingPageTooltip": "Open the reporting page",
-  "ScanIntervalTitle": "Change Scan Interval",
-  "ScanIntervalTooltip": "Change the interval for scanning",
-  "ScanNowTitle": "Scan now",
-  "ScanNowTooltip": "Scan your device now",
-  "ChangeLanguageTitle": "Change Language",
-  "ChangeLanguageTooltip": "Change the language of the application",
-  "QuitTitle": "Quit",
-  "QuitTooltip": "Quit example tray application"
+  "Tray": 
+  {
+    "ReportingPageTitle": "Reporting page",
+    "ReportingPageTooltip": "Open the reporting page",
+    "ScanIntervalTitle": "Change Scan Interval",
+    "ScanIntervalTooltip": "Change the interval for scanning",
+    "ScanNowTitle": "Scan now",
+    "ScanNowTooltip": "Scan your device now",
+    "ChangeLanguageTitle": "Change Language",
+    "ChangeLanguageTooltip": "Change the language of the application",
+    "QuitTitle": "Quit",
+    "QuitTooltip": "Quit example tray application"
+  },
+  "Navigation": 
+  {
+    "Settings": "Settings",
+    "Home": "Home",
+    "SecurityDashboard": "Security Dashboard",
+    "PrivacyDashboard": "Privacy Dashboard",
+    "Issues": "Issues",
+    "Integration": "Integration",
+    "About": "About"
+  },
+  "Settings":
+  {
+    "PersonalizeTitle": "Personalization",
+    "PersonalizeButton": "Personalize",
+    "ChangeLanguageTitle": "Language",
+    "ChangeLanguageButton": "Change language"
+  },
+  "Dashboard": 
+  {
+    "Issues": "Issues",
+    "SuggestedIssue": "Suggested Issue",
+    "QuickFix": "Quick Fix",
+    "ScanNow": "Scan Now",
+    "Medals": "Medals",
+    "SecurityStatus": "Security Status",
+    "Critical": "Critical",
+    "MediumConcern": "Medium Concern",
+    "LowConcern": "Low Concern",
+    "NoConcern": "Safe",
+    "SecurityRisksOverview": "Security Risks Overview",
+    "HighRisk": "High Risk Issues",
+    "MediumRisk": "Medium Risk Issues",
+    "LowRisk": "Low Risk Issues",
+    "Safe": "Issues Without Risk",
+    "RiskAreas": "Areas of security/privacy risks",
+    "Applications": "Applications",
+    "Browser": "Browser",
+    "Devices": "Devices",
+    "OperatingSystem": "Operating System",
+    "Passwords": "Passwords",
+    "Other": "Other",
+    "ChooseIssueDescription": "You have some issues you can fix. To start resolving an issue either navigate to the issues page, or pick a suggested issue below.",
+    "BarGraphDescription": "This graph shows the distribution of issues of different risk levels found over the past 5 scans.",
+    "SelectRisks": "Select risks",
+    "ChangeInterval": "Change interval"
+  },
+  "Issues":
+  {
+    "Name": "Name",
+    "Type": "Type",
+    "Risk": "Risk level",
+    "Information": "Information",
+    "Solution": "Solution",
+    "Previous": "&laquo; Previous step",
+    "Next": "Next step &raquo;",
+    "Back": "Back to issues overview"
+  }
 }

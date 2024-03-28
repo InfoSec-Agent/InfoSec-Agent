@@ -1,6 +1,7 @@
 import {PieChart} from "./piechart";
 import {ScanNow} from '../../wailsjs/go/main/Tray';
 import {RiskCounters} from "./risk-counters";
+import { GetLocalization } from './localize.js';
 
 /** Load the content of the Home page */
 function openHomePage() {
@@ -12,12 +13,12 @@ function openHomePage() {
       </div>
     </div>
     <div class="data-column issue-buttons">
-      <H2>You have some issues you can fix. 
+      <H2 class="choose-issue-description">You have some issues you can fix. 
         To start resolving a issue either navigate to the issues page, or pick a suggested issue below
       </H2>
-      <a class="issue-button">Suggested Issue</a>
-      <a class="issue-button">Quick Fix</a>
-      <a class="issue-button" id="scan-button">Scan Now</a>
+      <a class="issue-button suggested-issue">Suggested Issue</a>
+      <a class="issue-button quick-fix">Quick Fix</a>
+      <a class="issue-button scan-now">Scan Now</a>
     </div>
   </div>
   <h2 class="title-medals">Medals</h2>
@@ -46,12 +47,40 @@ function openHomePage() {
     let rc = new RiskCounters();
     new PieChart("pieChart",rc);
 
-    document.getElementById("scan-button").addEventListener("click", () => scanNow());
+    // Localize the static content of the home page
+    let staticHomePageConent = [
+      "suggested-issue", 
+      "quick-fix", 
+      "scan-now", 
+      "title-medals", 
+      "security-status",
+      "high-risk-issues", 
+      "medium-risk-issues",
+      "low-risk-issues",
+      "safe-issues",
+      "choose-issue-description"
+      ]
+      let localizationIds = [
+        "Dashboard.SuggestedIssue", 
+        "Dashboard.QuickFix", 
+        "Dashboard.ScanNow", 
+        "Dashboard.Medals", 
+        "Dashboard.SecurityStatus",
+        "Dashboard.HighRisk", 
+        "Dashboard.MediumRisk",
+        "Dashboard.LowRisk",
+        "Dashboard.Safe",
+        "Dashboard.ChooseIssueDescription"
+      ]
+      for (let i = 0; i < staticHomePageConent.length; i++) {
+          GetLocalization(localizationIds[i], staticHomePageConent[i])
+    }
+
+    document.getElementsByClassName("scan-now")[0].addEventListener("click", () => scanNow());
 }
 
 document.getElementById("logo-button").addEventListener("click", () => openHomePage());
 document.getElementById("home-button").addEventListener("click", () => openHomePage());
-
 
 function scanNow() {
     ScanNow()

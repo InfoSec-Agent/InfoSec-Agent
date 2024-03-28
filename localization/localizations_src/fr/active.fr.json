@@ -1,12 +1,72 @@
 {
-  "ReportingPageTitle": "Page de rapport",
-  "ReportingPageTooltip": "Ouvrir la page de rapport",
-  "ScanIntervalTitle": "Modifier l'intervalle d'analyse",
-  "ScanIntervalTooltip": "Modifier l'intervalle d'analyse de l'application",
-  "ScanNowTitle": "Analyser maintenant",
-  "ScanNowTooltip": "Lancer une analyse immédiate de l'application",
-  "ChangeLanguageTitle": "Changer la langue",
-  "ChangeLanguageTooltip": "Changer la langue de l'application",
-  "QuitTitle": "Quitter l'application",
-  "QuitTooltip": "Quitter l'application"
+  "Tray": 
+  {
+    "ReportingPageTitle": "Page de rapport",
+    "ReportingPageTooltip": "Ouvrir la page de rapport",
+    "ScanIntervalTitle": "Modifier l'intervalle de balayage",
+    "ScanIntervalTooltip": "Modifier l'intervalle de balayage",
+    "ScanNowTitle": "Balayer maintenant",
+    "ScanNowTooltip": "Balayer votre appareil maintenant",
+    "ChangeLanguageTitle": "Changer la langue",
+    "ChangeLanguageTooltip": "Changer la langue de l'application",
+    "QuitTitle": "Quitter",
+    "QuitTooltip": "Quitter l'application de la barre d'état exemple"
+  },
+  "Navigation": 
+  {
+    "Settings": "Paramètres",
+    "Home": "Accueil",
+    "SecurityDashboard": "Tableau de bord de sécurité",
+    "PrivacyDashboard": "Tableau de bord de confidentialité",
+    "Issues": "Problèmes",
+    "Integration": "Intégration",
+    "About": "À propos"
+  },
+  "Settings":
+  {
+    "PersonalizeTitle": "Personnalisation",
+    "PersonalizeButton": "Personnaliser",
+    "ChangeLanguageTitle": "Langue",
+    "ChangeLanguageButton": "Changer la langue"
+  },
+  "Dashboard": 
+  {
+    "Issues": "Problèmes",
+    "SuggestedIssue": "Problème Suggéré",
+    "QuickFix": "Correction Rapide",
+    "ScanNow": "Scanner Maintenant",
+    "Medals": "Médailles",
+    "SecurityStatus": "État de Sécurité",
+    "Critical": "Critique",
+    "MediumConcern": "Préoccupation Moyenne",
+    "LowConcern": "Faible Préoccupation",
+    "NoConcern": "Sûr",
+    "SecurityRisksOverview": "Aperçu des Risques de Sécurité",
+    "HighRisk": "Problèmes à Haut Risque",
+    "MediumRisk": "Problèmes à Risque Moyen",
+    "LowRisk": "Problèmes à Faible Risque",
+    "Safe": "Problèmes sans Risque",
+    "RiskAreas": "Domaines de Risques de Sécurité/Confidentialité",
+    "Applications": "Applications",
+    "Browser": "Navigateur",
+    "Devices": "Appareils",
+    "OperatingSystem": "Système d'Exploitation",
+    "Passwords": "Mots de Passe",
+    "Other": "Autre",
+    "ChooseIssueDescription": "Vous avez des problèmes que vous pouvez résoudre. Pour commencer à résoudre un problème, naviguez vers la page des problèmes ou sélectionnez un problème suggéré ci-dessous.",
+    "BarGraphDescription": "Ce graphique montre la répartition des problèmes de différents niveaux de risque trouvés lors des 5 derniers scans.",
+    "SelectRisks": "Sélectionner les risques",
+    "ChangeInterval": "Changer l'intervalle"
+  },
+  "Issues":
+  {
+    "Name": "Nom",
+    "Type": "Type",
+    "Risk": "Niveau de risque",
+    "Information": "Information",
+    "Solution": "Solution",
+    "Previous": "&laquo; Étape précédente",
+    "Next": "Étape suivante &raquo;",
+    "Back": "Retour à l'aperçu des problèmes"
+  }
 }

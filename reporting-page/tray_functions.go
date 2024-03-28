@@ -33,6 +33,7 @@ func (t *Tray) ScanNow() {
 // Returns: _
 func (t *Tray) ChangeLanguage() {
 	tray.ChangeLanguage()
+	tray.RefreshMenu()
 }
 
 // ChangeScanInterval calls the ChangeScanInterval function from the tray package

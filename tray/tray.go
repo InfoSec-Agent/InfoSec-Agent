@@ -5,10 +5,11 @@
 package tray
 
 import (
+	"log"
+
 	"github.com/InfoSec-Agent/InfoSec-Agent/icon"
 	"github.com/InfoSec-Agent/InfoSec-Agent/localization"
 	"github.com/InfoSec-Agent/InfoSec-Agent/scan"
-	"log"
 
 	"github.com/getlantern/systray"
 	"github.com/ncruces/zenity"
@@ -47,23 +48,23 @@ func OnReady() {
 
 	// Generate the menu for the system tray application
 
-	mReportingPage := systray.AddMenuItem(localization.Localize(language, "ReportingPageTitle"), localization.Localize(language, "ReportingPageTooltip"))
-	menuItems = append(menuItems, MenuItem{MenuTitle: "ReportingPageTitle", menuTooltip: "ReportingPageTooltip", sysMenuItem: mReportingPage})
+	mReportingPage := systray.AddMenuItem(localization.Localize(language, "Tray.ReportingPageTitle"), localization.Localize(language, "Tray.ReportingPageTooltip"))
+	menuItems = append(menuItems, MenuItem{MenuTitle: "Tray.ReportingPageTitle", menuTooltip: "Tray.ReportingPageTooltip", sysMenuItem: mReportingPage})
 
 	systray.AddSeparator()
-	mChangeScanInterval := systray.AddMenuItem(localization.Localize(language, "ScanIntervalTitle"), localization.Localize(language, "ScanIntervalTooltip"))
-	menuItems = append(menuItems, MenuItem{MenuTitle: "ScanIntervalTitle", menuTooltip: "ScanIntervalTooltip", sysMenuItem: mChangeScanInterval})
+	mChangeScanInterval := systray.AddMenuItem(localization.Localize(language, "Tray.ScanIntervalTitle"), localization.Localize(language, "Tray.ScanIntervalTooltip"))
+	menuItems = append(menuItems, MenuItem{MenuTitle: "Tray.ScanIntervalTitle", menuTooltip: "Tray.ScanIntervalTooltip", sysMenuItem: mChangeScanInterval})
 
-	mScanNow := systray.AddMenuItem(localization.Localize(language, "ScanNowTitle"), localization.Localize(language, "ScanNowTooltip"))
-	menuItems = append(menuItems, MenuItem{MenuTitle: "ScanNowTitle", menuTooltip: "ScanNowTooltip", sysMenuItem: mScanNow})
-
-	systray.AddSeparator()
-	mChangeLanguage := systray.AddMenuItem(localization.Localize(language, "ChangeLanguageTitle"), localization.Localize(language, "ChangeLanguageTooltip"))
-	menuItems = append(menuItems, MenuItem{MenuTitle: "ChangeLanguageTitle", menuTooltip: "ChangeLanguageTooltip", sysMenuItem: mChangeLanguage})
+	mScanNow := systray.AddMenuItem(localization.Localize(language, "Tray.ScanNowTitle"), localization.Localize(language, "Tray.ScanNowTooltip"))
+	menuItems = append(menuItems, MenuItem{MenuTitle: "Tray.ScanNowTitle", menuTooltip: "Tray.ScanNowTooltip", sysMenuItem: mScanNow})
 
 	systray.AddSeparator()
-	mQuit = systray.AddMenuItem(localization.Localize(language, "QuitTitle"), localization.Localize(language, "QuitTooltip"))
-	menuItems = append(menuItems, MenuItem{MenuTitle: "QuitTitle", menuTooltip: "QuitTooltip", sysMenuItem: mQuit})
+	mChangeLanguage := systray.AddMenuItem(localization.Localize(language, "Tray.ChangeLanguageTitle"), localization.Localize(language, "Tray.ChangeLanguageTooltip"))
+	menuItems = append(menuItems, MenuItem{MenuTitle: "Tray.ChangeLanguageTitle", menuTooltip: "Tray.ChangeLanguageTooltip", sysMenuItem: mChangeLanguage})
+
+	systray.AddSeparator()
+	mQuit = systray.AddMenuItem(localization.Localize(language, "Tray.QuitTitle"), localization.Localize(language, "Tray.QuitTooltip"))
+	menuItems = append(menuItems, MenuItem{MenuTitle: "Tray.QuitTitle", menuTooltip: "Tray.QuitTooltip", sysMenuItem: mQuit})
 
 	// Set up a channel to receive OS signals, used for termination
 	// Can be used to notify the application about system termination signals,
@@ -89,7 +90,7 @@ func OnReady() {
 			ScanNow()
 		case <-mChangeLanguage.ClickedCh:
 			ChangeLanguage()
-			RefreshMenu(menuItems)
+			RefreshMenu()
 		case <-mQuit.ClickedCh:
 			systray.Quit()
 		case <-sigc:
@@ -292,9 +293,21 @@ func ChangeLanguage(testInput ...string) {
 // Parameters: items ([]MenuItem)
 //
 // Returns: _
-func RefreshMenu(items []MenuItem) {
-	for _, item := range items {
+func RefreshMenu() {
+	fmt.Println("Current language: ", language)
+	fmt.Print("Current menu items: ", menuItems)
+	for _, item := range menuItems {
 		item.sysMenuItem.SetTitle(localization.Localize(language, item.MenuTitle))
+		fmt.Println(localization.Localize(language, item.MenuTitle))
 		item.sysMenuItem.SetTooltip(localization.Localize(language, item.menuTooltip))
 	}
+}
+
+// GetLanguage returns the current language index
+//
+// Parameters: _
+//
+// Returns: language index
+func GetLanguage() int {
+	return language
 }
