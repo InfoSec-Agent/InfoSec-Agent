@@ -33,6 +33,7 @@ export namespace usersettings {
 	    PointsHistory: number[];
 	    TimeStamps: time.Time[];
 	    LighthouseState: number;
+	    ProgressBarState: number;
 	    IntegrationKey: string;
 	
 	    static createFrom(source: any = {}) {
@@ -49,6 +50,7 @@ export namespace usersettings {
 	        this.PointsHistory = source["PointsHistory"];
 	        this.TimeStamps = this.convertValues(source["TimeStamps"], time.Time);
 	        this.LighthouseState = source["LighthouseState"];
+	        this.ProgressBarState = source["ProgressBarState"];
 	        this.IntegrationKey = source["IntegrationKey"];
 	    }
 	

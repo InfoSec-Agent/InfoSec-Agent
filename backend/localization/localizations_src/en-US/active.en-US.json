@@ -107,7 +107,7 @@
     "LighthouseProgress":"Progress",
     "TooltipText": "The more active you are in resolving issues, the more you are working towards becoming more secure! This is displayed by the building of your lighthouse. At the beginning there won't be much, but staying consistent in the use of InfoSec Agent will let you build a beautiful lighthouse. To transition to the next lighthouse state, the progress bar needs to be full.",
     "ProgressText":" completed to the next state.",
-    "ProgressTextAlmost": " Keep going, almost there!",
+    "ProgressTextAlmost": " Keep using the app and you will achieve a higher tier!",
     "ProgressTextDone": "You've achieved the highest tier!"
   },
   "Issues":

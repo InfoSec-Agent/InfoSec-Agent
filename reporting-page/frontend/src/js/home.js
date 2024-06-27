@@ -171,28 +171,22 @@ export async function openHomePage() {
 
   // Assuming the points are stored in local storage under the key 'userPoints'
   const usersettings = await getUserSettings();
-  const userPoints = parseInt(usersettings.Points) || 50;
-  const pointsToNextState = 10; // The points required to reach the next state
-  let modResult = userPoints % pointsToNextState;
-
-  if (modResult === 0 && lighthouseState < 4) {
-    modResult = 0.1;
-  }
-  const progressPercentage = 100 - (modResult / 10 * 100);
+  const progressPercentage = usersettings.ProgressBarState;
 
   // Update the progress bar width and text
-  if (lighthouseState === 4) {
+  if (progressPercentage === 100) {
     progressBar.style.width = '100%';
     progressText.style.visibility = 'hidden';
     progressAlmostText.style.visibility= 'hidden';
     progressDoneText.style.visibility = 'visible';
   } else if (progressPercentage === 99) {
+    progressPercentageText.textContent = `99%`;
     progressBar.style.width = '99%';
     progressText.style.visibility = 'hidden';
     progressAlmostText.style.visibility = 'vissible';
     progressDoneText.style.visibility = 'hidden';
   } else {
-    progressPercentageText.textContent = `${progressPercentage.toFixed(2)} %`;
+    progressPercentageText.textContent = `${progressPercentage} %`;
     progressBar.style.width = `${progressPercentage}%`;
     progressText.style.visibility = 'visible';
     progressAlmostText.style.visibility = 'hidden';

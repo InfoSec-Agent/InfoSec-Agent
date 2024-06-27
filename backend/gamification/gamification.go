@@ -24,10 +24,11 @@ import (
 //   - TimeStamps ([]time.Time): A list of timestamps for when the user has received points.
 //   - LighthouseState (int): The current state of the lighthouse.
 type GameState struct {
-	Points          int
-	PointsHistory   []int
-	TimeStamps      []time.Time
-	LighthouseState int
+	Points           int
+	PointsHistory    []int
+	TimeStamps       []time.Time
+	LighthouseState  int
+	ProgressBarState int
 }
 
 // UpdateGameState updates the game state based on the scan results and the current game state.
@@ -50,6 +51,7 @@ func UpdateGameState(scanResults []checks.Check, databasePath string, getter Poi
 	gs.PointsHistory = userSettings.PointsHistory
 	gs.TimeStamps = userSettings.TimeStamps
 	gs.LighthouseState = userSettings.LighthouseState
+	gs.ProgressBarState = userSettings.ProgressBarState
 
 	gs, err := getter.PointCalculation(gs, scanResults, databasePath)
 	if err != nil {
@@ -64,6 +66,7 @@ func UpdateGameState(scanResults []checks.Check, databasePath string, getter Poi
 	current.PointsHistory = gs.PointsHistory
 	current.TimeStamps = gs.TimeStamps
 	current.LighthouseState = gs.LighthouseState
+	current.ProgressBarState = gs.ProgressBarState
 	err = userGetter.SaveUserSettings(current)
 	if err != nil {
 		logger.Log.Warning("Gamification settings not saved to file")
@@ -129,11 +132,17 @@ func (r RealPointCalculationGetter) PointCalculation(gs GameState, scanResults [
 // Returns:
 //   - GameState: The updated game state with the new lighthouse state.
 func LighthouseStateTransition(gs GameState) GameState {
+	modResult := gs.Points % 10
+	gs.ProgressBarState = 100 - (modResult * 10)
 	switch {
 	case gs.Points <= 10 && SufficientActivity(gs):
 		gs.LighthouseState = 4 // The best state
+		gs.ProgressBarState = 100
 	case (gs.Points <= 20 && SufficientActivity(gs)) || gs.Points <= 10:
 		gs.LighthouseState = 3
+		if !SufficientActivity(gs) {
+			gs.ProgressBarState = 99
+		}
 	case (gs.Points <= 30 && SufficientActivity(gs)) || gs.Points <= 20:
 		gs.LighthouseState = 2
 	case (gs.Points <= 40 && SufficientActivity(gs)) || gs.Points <= 30:

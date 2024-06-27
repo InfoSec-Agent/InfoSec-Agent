@@ -26,15 +26,16 @@ import (
 //   - TimeStamps ([]time.Time): A slice of time.Time values representing the time stamps for each scan.
 //   - LighthouseState: An integer representing the gamification lighthouse state.
 type UserSettings struct {
-	Language        int         `json:"Language"`        // User's preferred language
-	ScanInterval    int         `json:"ScanInterval"`    // Interval for system scans (in hours)
-	Integration     bool        `json:"Integration"`     // Integration status with other systems
-	NextScan        time.Time   `json:"NextScan"`        // Time for the next system scan
-	Points          int         `json:"Points"`          // Current points amount
-	PointsHistory   []int       `json:"PointsHistory"`   // Points history for each scan
-	TimeStamps      []time.Time `json:"TimeStamps"`      // Time stamps for each scan
-	LighthouseState int         `json:"LighthouseState"` // User's game state
-	IntegrationKey  string      `json:"IntegrationKey"`  // Integration key for external systems
+	Language         int         `json:"Language"`         // User's preferred language
+	ScanInterval     int         `json:"ScanInterval"`     // Interval for system scans (in hours)
+	Integration      bool        `json:"Integration"`      // Integration status with other systems
+	NextScan         time.Time   `json:"NextScan"`         // Time for the next system scan
+	Points           int         `json:"Points"`           // Current points amount
+	PointsHistory    []int       `json:"PointsHistory"`    // Points history for each scan
+	TimeStamps       []time.Time `json:"TimeStamps"`       // Time stamps for each scan
+	LighthouseState  int         `json:"LighthouseState"`  // User's game state
+	ProgressBarState int         `json:"ProgressBarState"` // User's progress bar state
+	IntegrationKey   string      `json:"IntegrationKey"`   // Integration key for external systems
 }
 
 var DefaultUserSettings = UserSettings{Language: 1, ScanInterval: 7, Integration: false, NextScan: time.Now().Add((time.Hour * 24) * 7), Points: 0, PointsHistory: nil, TimeStamps: nil, LighthouseState: 0, IntegrationKey: ""}
